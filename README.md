@@ -2,8 +2,10 @@
 
 ### Install
 
-> Vundle
-> Plugin 'eaglelzy/vim-hexo'
+如果使用Vundle，在.vimrc 文件里面增加:
+``` vim
+Plugin 'eaglelzy/vim-hexo'
+```
 
 在vim里面执行
 
@@ -13,7 +15,10 @@
 
 在.vimrc 配置文件中加入hexo的根目录，比如hexo位于/home/lizy/hexo中，则添加
 
-> let g:hexoRootPath="/home/lizy/hexo"
+``` vim
+let g:hexoRootPath="/home/lizy/hexo"
+```
+
 
 ### 使用
 :HexoOpen 打开hexo的post目录
@@ -24,8 +29,10 @@
 
 可以在.vimrc 增加快捷键，比如：
 
->nnoremap <leader>ww :HexoOpen<CR>
->nnoremap <leader>wc :HexoC<CR>
->nnoremap <leader>wg :HexoG<CR>
->nnoremap <leader>wd :HexoD<CR>
->nnoremap <leader>wdd :HexoCGD<CR>
+``` vim
+nnoremap <leader>ww :HexoOpen<CR>
+nnoremap <leader>wc :HexoC<CR>
+nnoremap <leader>wg :HexoG<CR>
+nnoremap <leader>wd :HexoD<CR>
+nnoremap <leader>wdd :HexoCGD<CR>
+```
