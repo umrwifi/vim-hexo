@@ -3,7 +3,12 @@
 " Description: 这是一个跟hexo配合的插件
 " Maintainer:  
 " ============================================================================
-let g:hexoRootPath="/home/lizy/hexo/"
+if ( !exists('g:hexoRootPath') )
+    echo "plugin vim-hexo error! please add g:hexoRootPath in .vimrc~~"
+    fini
+endif
+
+"let g:hexoRootPath="/home/lizy/hexo/"
 let g:hexoPostPath=g:hexoRootPath . "source/_posts/"
 
 fun! OpenHexoRootPath()
@@ -16,7 +21,9 @@ endfun
 
 fun! OpenHexoPostPathAndNERDTree()
     call OpenHexoPostPath()
-    execute "NERDTreeToggle"
+    if exists(':NERDTree')
+        execute 'NERDTree'
+    endif
 endfun
 
 fun! OpenHexoPostFile(...)
@@ -26,6 +33,10 @@ fun! OpenHexoPostFile(...)
 endfun
 
 fun! NewHexoPost(...)
+    if !exists('*hexo')
+        fini
+    endif
+
     let filename = GenerateFileName(a:1)
 
     execute "!hexo new " . filename 
@@ -61,25 +72,33 @@ endfun
 
 
 fun! HexoC()
-    call OpenHexoRootPath()
-    execute "!hexo clean"
+    if exists('*hexo')
+        call OpenHexoRootPath()
+        execute "!hexo clean"
+    endif
 endfun
 
 fun! HexoG()
-    call OpenHexoRootPath()
-    execute "!hexo g"
+    if exists('*hexo')
+        call OpenHexoRootPath()
+        execute "!hexo g"
+    endif
 endfun
 
 fun! HexoD()
-    call OpenHexoRootPath()
-    execute "!hexo d"
+    if exists('*hexo')
+        call OpenHexoRootPath()
+        execute "!hexo d"
+    endif
 endfun
 
 fun! HexoCGD()
-    call OpenHexoRootPath()
-    execute "!hexo clean"
-    execute "!hexo g"
-    execute "!hexo d"
+    if exists('*hexo')
+        call OpenHexoRootPath()
+        execute "!hexo clean"
+        execute "!hexo g"
+        execute "!hexo d"
+    endif
 endfun
 
 command HexoOpen :call OpenHexoPostPathAndNERDTree()
@@ -88,5 +107,3 @@ command HexoG :call HexoG()
 command HexoD :call HexoD()
 command HexoCGD :call HexoCGD()
 command -nargs=+ HexoNew :call NewHexoPost("<args>")
-
-
