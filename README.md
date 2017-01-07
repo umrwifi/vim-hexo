@@ -19,16 +19,16 @@ Plugin 'eaglelzy/vim-hexo'
 let g:hexoRootPath="/home/lizy/hexo"
 ```
 
-
-### 使用
-:HexoOpen 打开hexo的post目录
-:HexoC 执行hexo clean
-:HexoG 执行hexo g
-:HexoD 执行hexo d
-:HexoCGD 执行hexo clean && hexo g && hexo d
+### Ho to Use
+``` vim
+:HexoOpen   打开hexo的post目录
+:HexoC      执行hexo clean
+:HexoG      执行hexo g
+:HexoD      执行hexo d
+:HexoCGD    执行hexo clean && hexo g && hexo d
+```
 
 可以在.vimrc 增加快捷键，比如：
-
 ``` vim
 nnoremap <leader>ww :HexoOpen<CR>
 nnoremap <leader>wc :HexoC<CR>
