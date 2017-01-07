@@ -21,18 +21,20 @@ let g:hexoRootPath="/home/lizy/hexo"
 
 ### Ho to Use
 ``` vim
-:HexoOpen   打开hexo的post目录
-:HexoC      执行hexo clean
-:HexoG      执行hexo g
-:HexoD      执行hexo d
-:HexoCGD    执行hexo clean && hexo g && hexo d
+:HexoNew <title>        hexo new <title>
+:HexoNewDraft <title>   hexo new draft <title>
+:HexoOpen               打开hexo的post目录
+:HexoOpenDraft          打开hexo的draft目录
+:HexoC                  hexo clean
+:HexoG                  hexo clean && hexo g
+:HexoD                  hexo clean && hexo g && hexo d
 ```
 
 可以在.vimrc 增加快捷键，比如：
 ``` vim
 nnoremap <leader>ww :HexoOpen<CR>
+nnoremap <leader>wr :HexoOpenDraft<CR>
 nnoremap <leader>wc :HexoC<CR>
 nnoremap <leader>wg :HexoG<CR>
 nnoremap <leader>wd :HexoD<CR>
-nnoremap <leader>wdd :HexoCGD<CR>
 ```
