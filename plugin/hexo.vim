@@ -33,7 +33,7 @@ fun! OpenHexoPostFile(...)
 endfun
 
 fun! NewHexoPost(...)
-    if !exists('*hexo')
+    if(executable('hexo'))
         fini
     endif
 
@@ -72,28 +72,28 @@ endfun
 
 
 fun! HexoC()
-    if exists('*hexo')
+    if(executable('hexo'))
         call OpenHexoRootPath()
         execute "!hexo clean"
     endif
 endfun
 
 fun! HexoG()
-    if exists('*hexo')
+    if(executable('hexo'))
         call OpenHexoRootPath()
         execute "!hexo g"
     endif
 endfun
 
 fun! HexoD()
-    if exists('*hexo')
+    if(executable('hexo'))
         call OpenHexoRootPath()
         execute "!hexo d"
     endif
 endfun
 
 fun! HexoCGD()
-    if exists('*hexo')
+    if(executable('hexo'))
         call OpenHexoRootPath()
         execute "!hexo clean"
         execute "!hexo g"
