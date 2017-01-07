@@ -101,9 +101,9 @@ fun! HexoCGD()
     endif
 endfun
 
-command HexoOpen :call OpenHexoPostPathAndNERDTree()
-command HexoC :call HexoC()
-command HexoG :call HexoG()
-command HexoD :call HexoD()
-command HexoCGD :call HexoCGD()
-command -nargs=+ HexoNew :call NewHexoPost("<args>")
+command! HexoOpen :call OpenHexoPostPathAndNERDTree()
+command! HexoC :call HexoC()
+command! HexoG :call HexoG()
+command! HexoD :call HexoD()
+command! HexoCGD :call HexoCGD()
+command! -nargs=+ HexoNew :call NewHexoPost("<args>")
