@@ -4,7 +4,7 @@
 " Maintainer:  
 " ============================================================================
 if ( !exists('g:hexoRootPath') )
-    echo "plugin vim-hexo error! please add g:hexoRootPath in .vimrc~~"
+    echom "plugin vim-hexo error! please add g:hexoRootPath in .vimrc~~"
     fini
 endif
 
@@ -33,8 +33,9 @@ fun! OpenHexoPostFile(...)
 endfun
 
 fun! NewHexoPost(...)
-    if(executable('hexo'))
-        fini
+    if(!executable('hexo'))
+        echom 'no hexo found!'
+        return
     endif
 
     let filename = GenerateFileName(a:1)
@@ -48,7 +49,6 @@ fun! GenerateFileName(...)
     call OpenHexoPostPath()
 
     let fileList = split(globpath(".", a:1 . "*.md"), "\n")
-    echo fileList
 
     let max = 0
     for name in fileList
@@ -64,8 +64,6 @@ fun! GenerateFileName(...)
         endif
     endfor
 
-    echo max
-
     return max == 0 ? a:1 : a:1 . "-" . (max + 1)
 endfun
 
@@ -75,6 +73,8 @@ fun! HexoC()
     if(executable('hexo'))
         call OpenHexoRootPath()
         execute "!hexo clean"
+    elseif
+        echom 'no hexo found!'
     endif
 endfun
 
@@ -82,6 +82,8 @@ fun! HexoG()
     if(executable('hexo'))
         call OpenHexoRootPath()
         execute "!hexo g"
+    elseif
+        echom 'no hexo found!'
     endif
 endfun
 
@@ -89,6 +91,8 @@ fun! HexoD()
     if(executable('hexo'))
         call OpenHexoRootPath()
         execute "!hexo d"
+    elseif
+        echom 'no hexo found!'
     endif
 endfun
 
@@ -98,6 +102,8 @@ fun! HexoCGD()
         execute "!hexo clean"
         execute "!hexo g"
         execute "!hexo d"
+    elseif
+        echom 'no hexo found!'
     endif
 endfun
 
