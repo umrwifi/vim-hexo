@@ -9,7 +9,7 @@ let g:hexoPostPath="source/_posts/"
 let g:hexoDraftPath="source/_drafts/"
 
 fun! OpenHexoRootPath()
-    execute "cd " g:hexoRootPath . g:hexoRootPath
+    execute "cd " g:hexoRootPath 
 endfun
 
 fun! OpenHexoPostPath()
