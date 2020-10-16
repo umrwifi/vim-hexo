@@ -3,25 +3,21 @@
 " Description: 这是一个跟hexo配合的插件
 " Maintainer:  
 " ============================================================================
-if ( !exists('g:hexoRootPath') )
-    echom "plugin vim-hexo error! please add g:hexoRootPath in .vimrc~~"
-    fini
-endif
 
 "let g:hexoRootPath="/home/lizy/hexo/"
-let g:hexoPostPath=g:hexoRootPath . "source/_posts/"
-let g:hexoDraftPath=g:hexoRootPath . "source/_drafts/"
+let g:hexoPostPath="source/_posts/"
+let g:hexoDraftPath="source/_drafts/"
 
 fun! OpenHexoRootPath()
-    execute "cd " . g:hexoRootPath
+    execute "cd " g:hexoRootPath . g:hexoRootPath
 endfun
 
 fun! OpenHexoPostPath()
-    execute "cd " . g:hexoPostPath
+    execute "cd " g:hexoRootPath . g:hexoPostPath
 endfun
 
 fun! OpenHexoDraftPath()
-    execute "cd " . g:hexoDraftPath
+    execute "cd " g:hexoRootPath . g:hexoDraftPath
 endfun
 
 fun! OpenHexoPostPathAndNERDTree()
